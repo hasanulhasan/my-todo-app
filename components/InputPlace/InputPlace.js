@@ -1,5 +1,6 @@
 import { View, TextInput, Button, StyleSheet } from 'react-native'
 import React from 'react'
+// import { myImage } from '/assets/dhaka.jpg'
 
 export default function InputPlace({ inputValue, setInputValue, placeList, setPlaceList }) {
   return (
@@ -14,8 +15,13 @@ export default function InputPlace({ inputValue, setInputValue, placeList, setPl
         title="Add"
         onPress={() => {
           if (inputValue !== '') {
-            setPlaceList([...placeList, { key: Math.random().toString(), value: inputValue }])
+            setPlaceList([...placeList, {
+              key: Math.random().toString(),
+              value: inputValue,
+              img: 'https://content.r9cdn.net/rimg/dimg/c9/06/8d4fe0d8-city-28030-164fcc85915.jpg?width=1366&height=768&xhint=1477&yhint=1081&crop=true'
+            }])
           }
+          setInputValue('')
         }}></Button>
     </View>
   )

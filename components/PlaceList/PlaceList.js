@@ -9,6 +9,7 @@ export default function PlaceList({ placeList, handleSelectedPlace }) {
       data={placeList}
       renderItem={info => <ListItem
         placeName={info.item.value}
+        img={info.item.img}
         onItemPress={() => handleSelectedPlace(info.item.key)}></ListItem>} />
   )
 }

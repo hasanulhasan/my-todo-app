@@ -13,11 +13,23 @@ export default function App() {
     const place = placeList.find(place => place.key === key)
     setSelectedPlace(place);
   }
+  const handleHideModal = () => {
+    setSelectedPlace(null)
+  }
+  const handleDeleteItems = key => {
+    setPlaceList(
+      placeList.filter(place => place.key !== key)
+    )
+    setSelectedPlace(null)
+  }
 
   return (
     <View style={styles.container}>
       {
-        selectedPlace && <PlaceDetails selectedPlace={selectedPlace} />
+        selectedPlace && <PlaceDetails
+          selectedPlace={selectedPlace}
+          handleHideModal={handleHideModal}
+          handleDeleteItems={handleDeleteItems} />
       }
       <InputPlace
         inputValue={inputValue}
